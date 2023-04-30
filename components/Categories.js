@@ -1,5 +1,6 @@
 import {Text, ScrollView} from "react-native";
 import CategoryCard from "./CategoryCard";
+import {Suspense} from "react";
 
 
 const Categories = () => {

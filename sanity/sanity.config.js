@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'default',
   title: 'delivo-client',
 
-  projectId: 'p3vixw9g',
+  projectId: 'a269qp6h',
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],

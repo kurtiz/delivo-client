@@ -76,5 +76,4 @@ const FeaturedRow = ({id, title, description}) => {
     );
 };
 
-
 export default FeaturedRow;

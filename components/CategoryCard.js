@@ -20,5 +20,4 @@ const CategoryCard = ({imgUrl, title}) => {
 };
 
 
-
 export default CategoryCard;

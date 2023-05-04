@@ -2,11 +2,22 @@ import {ScrollView, Text, View} from "react-native";
 import {ArrowRightIcon} from "react-native-heroicons/outline";
 import MainEnv from "../main.env";
 import RestaurantCard from "./RestaurantCard";
+import {useEffect, useState} from "react";
+import {getFeaturedListById, urlFor} from "../sanity";
 
-const FeaturedRow = ({id, title, description}) => {
+const FeaturedRow = ({id, title, description, classes}) => {
+    const [restaurants, setRestaurants] = useState([]);
+
+    useEffect(() => {
+        getFeaturedListById(id)
+            .then(data => {
+                setRestaurants(data?.restaurants)
+            })
+            .catch(err => alert(err))
+    })
 
     return (
-        <View>
+        <View className={classes}>
             <View className="mt-4 flex-row items-center justify-between px-4">
                 <Text className="font-bold text-lg">{title}</Text>
                 <ArrowRightIcon color={MainEnv.themeColor}/>
@@ -21,6 +32,24 @@ const FeaturedRow = ({id, title, description}) => {
                 className="pt-4"
             >
                 {/* RestaurantCards */}
+                {restaurants?.map((
+                    {_id, address, dish, image, name, rating, short_description, type, long, lat}) => (
+                    <RestaurantCard
+                        key={_id}
+                        id={_id}
+                        imgUrl={urlFor(image).url()}
+                        title={name}
+                        rating={rating}
+                        genre={type?.name}
+                        address={address}
+                        short_description={short_description}
+                        dishes={dish}
+                        long={long}
+                        lat={lat}
+                    />
+                ))}
+
+
                 <RestaurantCard
                     id="gte"
                     imgUrl="https://s7d1.scene7.com/is/image/mcdonalds/2_Pub_Commitment_574x384:2-column-desktop?resmode=sharp2"

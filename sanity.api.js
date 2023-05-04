@@ -25,4 +25,12 @@ export const getFeaturedListById = async(id) => {
             return data;
         });
 }
+
+export const getCategories = async() => {
+    return await client.fetch(
+        '*[_type == "category" ]'
+    ).then((data) => {
+            return data;
+        });
+}
 export default client;

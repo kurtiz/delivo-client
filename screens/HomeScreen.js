@@ -10,7 +10,7 @@ import {
 import {SafeAreaView} from "react-native-safe-area-context";
 import Categories from "../components/Categories";
 import FeaturedRow from "../components/FeaturedRow";
-import {getFeatured} from "../sanity.js";
+import {getFeatured} from "../sanity.api";
 
 
 const HomeScreen = () => {

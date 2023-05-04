@@ -101,24 +101,6 @@ const HomeScreen = () => {
                             />
                 ))}
 
-
-                {/*<FeaturedRow*/}
-                {/*    id="f11"*/}
-                {/*    title="Featured"*/}
-                {/*    description="Recommended based on your previous orders"*/}
-                {/*/>*/}
-
-                {/*<FeaturedRow*/}
-                {/*    id="f22"*/}
-                {/*    title="Yummy Discounts"*/}
-                {/*    description="Incredible Discounts you can't afford to miss"*/}
-                {/*/>*/}
-                {/*<FeaturedRow*/}
-                {/*    id="f33"*/}
-                {/*    classes="mb-2"*/}
-                {/*    title="Near You"*/}
-                {/*    description="Order fast from the nearest restaurants"*/}
-                {/*/>*/}
                 {/* End Featured Rows */}
                     </ScrollView>
                 {/* End body */}

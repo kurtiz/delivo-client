@@ -2,6 +2,8 @@ import {View, Text, TouchableOpacity, Image} from 'react-native';
 import {StarIcon} from "react-native-heroicons/solid";
 import {MapPinIcon} from "react-native-heroicons/outline";
 import MainEnv from "../main.env";
+import {useNavigation} from "@react-navigation/native";
+import RestaurantScreen from "../screens/RestaurantScreen";
 
 const RestaurantCard = (
     {
@@ -17,8 +19,28 @@ const RestaurantCard = (
         lat
     }
 ) => {
+    const navigation = useNavigation()
     return (
-        <TouchableOpacity className="bg-white shadow rounded-t-sm mr-3" activeOpacity={0.9}>
+        <TouchableOpacity
+            className="bg-white shadow rounded-t-sm mr-3"
+            activeOpacity={0.9}
+            onPress={() => {
+                navigation.navigate(
+                    "Restaurant", {
+                        id,
+                        imgUrl,
+                        title,
+                        rating,
+                        genre,
+                        address,
+                        short_description,
+                        dishes,
+                        long,
+                        lat
+                    })
+            }
+            }
+        >
             <Image source={{
                 uri: imgUrl
             }}
@@ -29,15 +51,15 @@ const RestaurantCard = (
                 <View className="flex-row items-center space-x-1">
                     <StarIcon color={MainEnv.themeColor} size={21} opacity={0.5}/>
                     <Text opacity={0.8} className="text-xs text-gray-500">
-                        <Text  style={{
+                        <Text style={{
                             color: MainEnv.themeColor
                         }}>{rating} • {genre}</Text>
                     </Text>
                 </View>
                 <View className="flex-row items-center space-x-1">
-                    <MapPinIcon size={22} opacity={0.5} color="gray" />
+                    <MapPinIcon size={22} opacity={0.5} color="gray"/>
                     <Text className="text-xs text-gray-500">
-                        Nearby  •  {address}
+                        Nearby • {address}
                     </Text>
                 </View>
             </View>

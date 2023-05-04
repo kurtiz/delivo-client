@@ -1,6 +1,6 @@
-import {Text, ScrollView} from "react-native";
+import {ScrollView} from "react-native";
 import CategoryCard from "./CategoryCard";
-import {Suspense, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {getCategories, urlFor} from "../sanity.api";
 
 

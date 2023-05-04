@@ -3,7 +3,7 @@ import {ArrowRightIcon} from "react-native-heroicons/outline";
 import MainEnv from "../main.env";
 import RestaurantCard from "./RestaurantCard";
 import {useEffect, useState} from "react";
-import {getFeaturedListById, urlFor} from "../sanity";
+import {getFeaturedListById, urlFor} from "../sanity.api";
 
 const FeaturedRow = ({id, title, description, classes}) => {
     const [restaurants, setRestaurants] = useState([]);
@@ -48,58 +48,6 @@ const FeaturedRow = ({id, title, description, classes}) => {
                         lat={lat}
                     />
                 ))}
-
-
-                <RestaurantCard
-                    id="gte"
-                    imgUrl="https://s7d1.scene7.com/is/image/mcdonalds/2_Pub_Commitment_574x384:2-column-desktop?resmode=sharp2"
-                    title="McDonald's Yum Crunch"
-                    rating={3.6}
-                    genre="American"
-                    address="Men's ST, Kwashieman"
-                    short_description="Yummy and Crunchy!! Burger and chicken wings"
-                    dishes={[]}
-                    long={7.90}
-                    lat={0.98}
-                />
-                <RestaurantCard
-                    id="gte"
-                    imgUrl="https://a.cdn-hotels.com/gdcs/production0/d1513/35c1c89e-408c-4449-9abe-f109068f40c0.jpg?impolicy=fcrop&w=800&h=533&q=medium"
-                    title="McDonald's Yum Crunch"
-                    rating={3.6}
-                    genre="American"
-                    address="Men's ST, Kwashieman"
-                    short_description="Yummy and Crunchy!! Burger and chicken wings"
-                    dishes={[]}
-                    long={7.90}
-                    lat={0.98}
-                />
-                <RestaurantCard
-                    id="gte"
-                    imgUrl="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80"
-                    title="McDonald's Yum Crunch"
-                    rating={3.6}
-                    genre="American"
-                    address="Men's ST, Kwashieman"
-                    short_description="Yummy and Crunchy!! Burger and chicken wings"
-                    dishes={[]}
-                    long={7.90}
-                    lat={0.98}
-                />
-                <RestaurantCard
-                    id="gte"
-                    imgUrl="https://s7d1.scene7.com/is/image/mcdonalds/2_Pub_Commitment_574x384:2-column-desktop?resmode=sharp2"
-                    title="McDonald's Yum Crunch"
-                    rating={3.6}
-                    genre="American"
-                    address="Men's ST, Kwashieman"
-                    short_description="Yummy and Crunchy!! Burger and chicken wings"
-                    dishes={[]}
-                    long={7.90}
-                    lat={0.98}
-                />
-
-
             </ScrollView>
         </View>
     );

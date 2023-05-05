@@ -17,9 +17,10 @@ export const basketSlice = createSlice({
 
             if (index >= 0) {
                 copyOfBasket.splice(index, 1)
-            } else {
-                alert(`Can't remove product with id of "${action.payload.id}" from the basket`)
             }
+            // else {
+            //     // alert(`Can't remove product with id of "${action.payload.id}" from the basket`)
+            // }
 
             state.items = copyOfBasket;
         },

@@ -5,6 +5,7 @@ import {urlFor} from "../sanity.api";
 import {ArrowLeftIcon, StarIcon} from "react-native-heroicons/solid";
 import MainEnv from "../main.env";
 import {ChevronRightIcon, MapPinIcon, QuestionMarkCircleIcon} from "react-native-heroicons/outline";
+import DishRow from "../components/DishRow";
 
 const RestaurantScreen = () => {
     const {
@@ -86,6 +87,19 @@ const RestaurantScreen = () => {
                     Menu
                 </Text>
             </View>
+
+            {/* Dish Rows */}
+            {dishes.map((dish) => (
+                <DishRow
+                    key={dish._id}
+                    id={dish._id}
+                    name={dish.name}
+                    description={dish.short_description}
+                    price={dish.price}
+                    image={dish.image}
+                />
+            ))}
+
         </ScrollView>
     );
 };

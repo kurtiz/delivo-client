@@ -74,11 +74,11 @@ const RestaurantScreen = () => {
                     </Text>
                 </View>
                 <TouchableOpacity className="flex-row space-x-2 p-4 border-y border-gray-200">
-                    <QuestionMarkCircleIcon color="gray" opacity={0.6} size={20} />
+                    <QuestionMarkCircleIcon color="gray" opacity={0.6} size={20}/>
                     <Text className="flex-1 pl-2 font-bold text-md">
                         Have a food allergy?
                     </Text>
-                    <ChevronRightIcon color={MainEnv.themeColor} size={20} />
+                    <ChevronRightIcon color={MainEnv.themeColor} size={20}/>
                 </TouchableOpacity>
             </View>
 
@@ -99,7 +99,6 @@ const RestaurantScreen = () => {
                     image={dish.image}
                 />
             ))}
-
         </ScrollView>
     );
 };

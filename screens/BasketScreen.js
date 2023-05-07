@@ -48,12 +48,12 @@ const BasketScreen = () => {
                     </TouchableOpacity>
                 </View>
 
-                <View className="flex-row items-center space-x-4 px-4 py-3 bg-white my-4">
+                <View className="flex-row items-center space-x-3 px-4 py-3 bg-white my-2">
                     <Image
                         source={{
                             uri: "https://links.papareact.com/wru"
                         }}
-                        className="h-7 w-7 bg-gray-300p-4 rounded-full"
+                        className="h-10 w-10 bg-gray-300p-4 rounded-full"
                     />
                     <Text className="flex-1 text-center">
                         Deliver in 15-40 min

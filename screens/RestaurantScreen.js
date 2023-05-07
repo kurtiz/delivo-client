@@ -1,14 +1,21 @@
 import {View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 import {useNavigation, useRoute} from "@react-navigation/native";
-import {useLayoutEffect} from "react";
+import {useEffect, useLayoutEffect} from "react";
 import {urlFor} from "../sanity.api";
 import {ArrowLeftIcon, StarIcon} from "react-native-heroicons/solid";
 import MainEnv from "../main.env";
 import {ChevronRightIcon, MapPinIcon, QuestionMarkCircleIcon} from "react-native-heroicons/outline";
 import DishRow from "../components/DishRow";
 import Basket from "../components/Basket";
+import {useDispatch, useSelector} from "react-redux";
+import {setRestaurant} from "../features/restaurantSlice";
+import {selectBasketItems} from "../features/basketSlice";
 
 const RestaurantScreen = () => {
+    const navigation = useNavigation();
+    const dispatch = useDispatch();
+    const items = useSelector(selectBasketItems);
+
     const {
         params: {
             id,
@@ -23,7 +30,24 @@ const RestaurantScreen = () => {
             lat
         }
     } = useRoute();
-    const navigation = useNavigation()
+
+    useEffect(() => {
+        dispatch(
+            setRestaurant({
+                id,
+                imgUrl,
+                title,
+                rating,
+                genre,
+                address,
+                short_description,
+                dishes,
+                long,
+                lat
+            })
+        );
+    }, [dispatch]);
+
     // specify activities to take place as soon as this screen appears
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -33,7 +57,7 @@ const RestaurantScreen = () => {
 
     return (
         <>
-            <Basket/>
+            <Basket />
             <ScrollView>
                 <View className="relative">
                     <Image
@@ -85,7 +109,7 @@ const RestaurantScreen = () => {
                     </TouchableOpacity>
                 </View>
 
-                <View className="pb-28">
+                <View className={items.length !== 0 && "pb-28"}>
                     <Text className="pt-4 px-6 mb-3 font-bold text-xl">
                         Menu
                     </Text>
